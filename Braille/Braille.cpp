@@ -1,20 +1,73 @@
 #include "Braille.h"
-#include "Arduino.h"
+#include <Arduino.h>
 #include <Servo.h>
 
-
-void Braille::UP()
+Braille::Braille()
 {
-int up;
-int up2;
-int up3;
-int up4;
-int up5;
-int up6;
+  //begin();
+servo1.attach(3);
+servo2.attach(5);
+servo3.attach(6);
+servo4.attach(9);
+servo5.attach(10);
+servo6.attach(11);
+
+servo1.write(down);
+servo2.write(down2);
+servo3.write(down3);
+servo4.write(down4);
+servo5.write(down5);
+servo6.write(down6);
 }
 
-void Braille::Braille(char val)
+void Braille::wait(int HoldUp)
 {
+  delay(HoldUp);
+}
+
+void Braille::UP(int up, int up2, int up3, int up4, int up5, int up6)
+{
+servo1.write(up);
+servo2.write(up2);
+servo3.write(up3);
+servo4.write(up4);
+servo5.write(up5);
+servo6.write(up6);
+}
+
+void Braille::Down(int down, int down2, int down3, int down4, int down5, int down6)
+{
+servo1.write(down);
+servo2.write(down2);
+servo3.write(down3);
+servo4.write(down4);
+servo5.write(down5);
+servo6.write(down6);
+}
+
+/*void Braille::begin()
+{
+servo1.attach(3);
+servo2.attach(5);
+servo3.attach(6);
+servo4.attach(9);
+servo5.attach(10);
+servo6.attach(11);
+
+servo1.write(down);
+servo2.write(down2);
+servo3.write(down3);
+servo4.write(down4);
+servo5.write(down5);
+servo6.write(down6);
+}
+*/
+
+void Braille::F_Braille(char val)
+{
+  UP();
+  Down();
+
      if (val == 'a' or val == 'b' or val == 'c' or val == 'd' or val == 'e' or val == 'f' or val == 'g' or val == 'h' or val == 'k' or val == 'l' or val == 'm' or val == 'n' or val == 'o' or val == 'p' or val == 'q' or val == 'r' or val == 'u' or val == 'v' or val == 'x' or val == 'y' or val == 'z')
     {
       servo1.write(up);
@@ -45,7 +98,7 @@ void Braille::Braille(char val)
       servo6.write(up6);
     }
 
-    delay(1000);
+    wait(1000);
     servo1.write(down);
     servo2.write(down2);
     servo3.write(down3);

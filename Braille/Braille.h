@@ -1,7 +1,7 @@
 #ifndef Braille_h
 #define Braille_h
 
-#include "Arduino.h"
+#include <Arduino.h>
 #include <Servo.h>
 
 class Braille
@@ -13,6 +13,8 @@ Braille();
 void begin();
 void Down();
 void UP();
+void wait();
+void F_Braille();
 
 private:
 
